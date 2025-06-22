@@ -1,7 +1,7 @@
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
 CREATE TABLE tracking_numbers (
-    id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,  -- Use UUID and PostgreSQL's uuid_generate_v4() function
+    id SERIAL PRIMARY KEY,  -- Use UUID and PostgreSQL's uuid_generate_v4() function
     tracking_number VARCHAR(255) NOT NULL,
     customer_id UUID NOT NULL,
     origin_country_id VARCHAR(2) NOT NULL,
