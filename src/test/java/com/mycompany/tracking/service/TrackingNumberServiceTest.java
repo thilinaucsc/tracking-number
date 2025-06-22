@@ -2,11 +2,9 @@ package com.mycompany.tracking.service;
 
 import com.mycompany.tracking.dto.TrackingNumberRequest;
 import com.mycompany.tracking.exception.TrackingException;
-import com.mycompany.tracking.repository.TrackingNumberRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.OffsetDateTime;
@@ -18,8 +16,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 @ExtendWith(MockitoExtension.class)  // Enable Mockito for JUnit 5
 public class TrackingNumberServiceTest {
 
-    @Mock
-    private TrackingNumberRepository trackingNumberRepository;  // Mock the repository
+//    @Mock
+//    private TrackingNumberRepository trackingNumberRepository;  // Mock the repository
 
     @InjectMocks
     private TrackingNumberServiceImpl trackingNumberService;
@@ -30,9 +28,7 @@ public class TrackingNumberServiceTest {
                 "INVALID", "ID", 1.234, OffsetDateTime.now(), UUID.randomUUID(), "Invalid Customer", "invalid-customer");
 
         // Assert that the service throws TrackingException for invalid country code
-        TrackingException exception = assertThrows(TrackingException.class, () -> {
-            trackingNumberService.generateTrackingNumber(request, UUID.randomUUID().toString());
-        });
+        TrackingException exception = assertThrows(TrackingException.class, () -> trackingNumberService.generateTrackingNumber(request, UUID.randomUUID().toString()));
 
         assertEquals("Invalid country code", exception.getMessage());
     }
@@ -43,9 +39,7 @@ public class TrackingNumberServiceTest {
                 "MY", "ID", -1.0, OffsetDateTime.now(), UUID.randomUUID(), "Invalid Customer", "invalid-customer");
 
         // Assert that the service throws TrackingException for invalid weight
-        TrackingException exception = assertThrows(TrackingException.class, () -> {
-            trackingNumberService.generateTrackingNumber(request, UUID.randomUUID().toString());
-        });
+        TrackingException exception = assertThrows(TrackingException.class, () -> trackingNumberService.generateTrackingNumber(request, UUID.randomUUID().toString()));
 
         assertEquals("Invalid weight", exception.getMessage());
     }

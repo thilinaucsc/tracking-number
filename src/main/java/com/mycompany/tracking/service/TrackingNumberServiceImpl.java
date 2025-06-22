@@ -33,7 +33,7 @@ public class TrackingNumberServiceImpl implements TrackingNumberService {
             logger.info("Trace ID: {} - Generating tracking number for customer {}", traceId, request.customerName());
 
             // Validation for invalid country code
-            if (!isValidCountryCode(request.originCountryId()) || !isValidCountryCode(request.destinationCountryId())) {
+            if (isValidCountryCode(request.originCountryId()) || isValidCountryCode(request.destinationCountryId())) {
                 throw new TrackingException("Invalid country code", new Throwable());
             }
 
@@ -100,6 +100,6 @@ public class TrackingNumberServiceImpl implements TrackingNumberService {
 
     private boolean isValidCountryCode(String countryCode) {
         // Example validation logic for country code
-        return countryCode != null && countryCode.length() == 2 && countryCode.matches("[A-Z]+");
+        return countryCode == null || countryCode.length() != 2 || !countryCode.matches("[A-Z]+");
     }
 }
