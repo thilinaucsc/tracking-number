@@ -34,3 +34,7 @@ build/
 /.mvn/
 /mvnw
 /mvnw.cmd
+/${project.build.directory}/classes/application.properties
+/${project.build.directory}/classes/data.sql
+/${project.build.directory}/classes/com/mycompany/tracking/exception/GlobalExceptionHandler.class
+/${project.build.directory}/

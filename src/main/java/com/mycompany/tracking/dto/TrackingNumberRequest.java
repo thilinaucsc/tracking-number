@@ -18,8 +18,6 @@ public record TrackingNumberRequest (
     @NotNull
     @DecimalMin(value = "0.001", message = "Weight must be at least 0.001 kg")
     @Digits(integer = 5, fraction = 3, message = "Weight must have up to 3 decimal places")
-//    @DecimalMin(value = "0.001", inclusive = true)
-//    @Digits(integer = 6, fraction = 3)
     double weight,
 
     @NotNull

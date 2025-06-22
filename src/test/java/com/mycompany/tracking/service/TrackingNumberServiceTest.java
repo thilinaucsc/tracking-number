@@ -1,24 +1,19 @@
 package com.mycompany.tracking.service;
 
 import com.mycompany.tracking.dto.TrackingNumberRequest;
-import com.mycompany.tracking.dto.TrackingNumberResponse;
-import com.mycompany.tracking.entity.TrackingNumberEntity;
 import com.mycompany.tracking.exception.TrackingException;
 import com.mycompany.tracking.repository.TrackingNumberRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.OffsetDateTime;
-import java.util.Optional;
 import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)  // Enable Mockito for JUnit 5
 public class TrackingNumberServiceTest {

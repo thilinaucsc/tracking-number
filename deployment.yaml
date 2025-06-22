@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tracking-number-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: tracking-number
+  template:
+    metadata:
+      labels:
+        app: tracking-number
+    spec:
+      containers:
+        - name: tracking-number-app
+          image: your-docker-repo/your-image:latest
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SPRING_DATASOURCE_URL
+              value: jdbc:postgresql://ep-yellow-shape-a20xv4j9.eu-central-1.pg.koyeb.app/koyebdb
+            - name: SPRING_DATASOURCE_USERNAME
+              value: koyeb-adm
+            - name: SPRING_DATASOURCE_PASSWORD
+              value: npg_hABl0ydfzV1U

@@ -1,7 +1,6 @@
 package com.mycompany.tracking.controller;
 
 import com.mycompany.tracking.dto.TrackingNumberRequest;
-import com.mycompany.tracking.dto.TrackingNumberResponse;
 import com.mycompany.tracking.service.TrackingNumberService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -14,11 +13,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.time.OffsetDateTime;
 import java.util.UUID;
 
-import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
 @WebMvcTest(TrackingNumberController.class)  // Only test the controller layer
 public class TrackingNumberControllerTests {

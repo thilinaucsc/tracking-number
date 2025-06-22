@@ -85,7 +85,6 @@ public class TrackingNumberServiceImpl implements TrackingNumberService {
             TrackingNumberResponse response = new TrackingNumberResponse(tracking, request.createdAt());
 
             // if you use Kafka, Publish a Kafka event with the tracking number
-            //
             // trackingNumberProducer.sendTrackingNumberEvent(response);
 
             logger.info("Trace ID: {} - Generated tracking number: {}", traceId, tracking);
